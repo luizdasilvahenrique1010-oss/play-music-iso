@@ -1,0 +1,9 @@
+#!/bin/sh
+# Faz o menu de boot iniciar sozinho em 3 segundos (maquina de bar liga sem ninguem apertar nada)
+for f in binary/isolinux/*.cfg; do
+  [ -f "$f" ] && sed -i -E "s/^timeout .*/timeout 30/" "$f"
+done
+for f in binary/boot/grub/*.cfg; do
+  [ -f "$f" ] && sed -i -E "s/^set timeout=.*/set timeout=3/" "$f"
+done
+exit 0

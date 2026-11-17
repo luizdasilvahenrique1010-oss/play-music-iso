@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+systemctl enable jukebox-server.service
+mkdir -p /mnt/jukebox
+chmod +x /opt/jukebox/server.py

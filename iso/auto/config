@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+lb config noauto \
+  --distribution bookworm \
+  --architectures amd64 \
+  --binary-images iso-hybrid \
+  --archive-areas "main contrib non-free non-free-firmware" \
+  --apt-recommends false \
+  --debian-installer none \
+  --iso-volume "PLAYMUSICA" \
+  --iso-application "Play Musica" \
+  --iso-publisher "Play Musica" \
+  --memtest none \
+  --bootappend-live "boot=live components quiet loglevel=3 noeject locales=pt_BR.UTF-8 keyboard-layouts=br timezone=America/Maceio" \
+  "${@}"

@@ -1,0 +1,12 @@
+[Unit]
+Description=Play Musica - servidor local
+After=local-fs.target systemd-udevd.service
+
+[Service]
+Environment=PYTHONUTF8=1 LANG=C.UTF-8
+ExecStart=/usr/bin/python3 /opt/jukebox/server.py
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
